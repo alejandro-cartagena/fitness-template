@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed inset-x-0 top-0 z-50 h-16 border-b border-black/5 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <nav className="inset-x-0 top-0 z-50 h-16 border-b border-black/5 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-sm">
         <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Brand */}
           <Link
