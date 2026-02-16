@@ -1,13 +1,13 @@
-import Image from "next/image";
+import Hero from "@/components/sections/Hero";
+import Features from "@/components/sections/Features";
+import MyTransformation from "@/components/sections/MyTransformation";
 
 export default function Home() {
   return (
     <div>
-      <main>
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Fitness Template
-          </h1>
-      </main>
+      <Hero />
+      <Features />
+      <MyTransformation />
     </div>
   );
 }
