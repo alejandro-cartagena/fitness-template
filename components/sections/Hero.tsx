@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { Montserrat } from "next/font/google";
+
+const mont = Montserrat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+});
 
 interface HeroProps {
   titleLines?: string[];
@@ -32,7 +38,7 @@ export default function Hero({
       {/* Content */}
       <div className="relative z-10 mx-auto grid h-full max-w-5xl place-items-center px-4 text-center sm:px-6 lg:px-8">
         <div className="flex flex-col items-center">
-          <h1 className="font-extrabold uppercase tracking-tight text-white">
+          <h1 className="font-extrabold uppercase tracking-tight text-[var(--text-inverse)]">
             <span className="block text-3xl leading-tight sm:text-5xl lg:text-6xl">
               {titleLines[0] ?? ""}
             </span>
@@ -45,13 +51,13 @@ export default function Hero({
           </h1>
 
           {/* Accent underline */}
-          <div className="mt-3 h-1 w-20 bg-red-600 sm:w-24" aria-hidden="true" />
+          <div className="mt-3 h-1 w-20 bg-[var(--accent-primary)] sm:w-24" aria-hidden="true" />
 
           {/* CTA */}
           <div className="mt-6">
             <Link
               href={ctaHref}
-              className="inline-flex items-center justify-center rounded-md bg-red-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-red-500 active:scale-95"
+              className={`${mont.className} inline-flex items-center justify-center rounded-md bg-[var(--accent-primary)] px-5 py-2.5 text-lg uppercase tracking-wider font-semibold text-white shadow-sm transition hover:bg-[var(--accent-hover)] active:scale-95`}
             >
               {ctaLabel}
             </Link>

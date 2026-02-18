@@ -3,6 +3,12 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import PhoneFrame from "@/components/ui/PhoneFrame";
+import { Montserrat } from "next/font/google";
+
+const mont = Montserrat({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+});
 
 type Feature = {
   id: string;
@@ -45,7 +51,7 @@ const defaultItems: Feature[] = [
     description:
       "Weekly check-ins, measurements, and photo logs to keep you accountable and improving.",
     screenshotUrl:
-      "https://images.unsplash.com/photo-1551281044-8a281611b4d2?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1758875568758-daad5146648c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "dm",
@@ -73,7 +79,7 @@ export default function Features({
     <section className="relative isolate w-full py-14 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Eyebrow */}
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-red-600">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-primary)]">
           {eyebrow}
         </p>
         {/* Heading */}
@@ -82,7 +88,7 @@ export default function Features({
         </h2>
 
         {/* Aligned label + card columns */}
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-10 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => {
             const isActive = activeId === item.id;
             return (
@@ -93,10 +99,10 @@ export default function Features({
                     type="button"
                     aria-pressed={isActive}
                     onClick={() => handleToggle(item.id)}
-                    className={`w-full rounded-lg px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-wide shadow-sm transition-colors sm:text-xs ${
+                    className={`${mont.className} w-full rounded-lg px-3 py-2 text-center text-[12px] md:text-base font-semibold uppercase tracking-wide shadow-sm transition-colors ${
                       isActive
                         ? "bg-red-600 text-white"
-                        : "bg-zinc-900 text-white hover:bg-zinc-800"
+                        : "bg-[var(--accent-primary)] text-white hover:bg-[var(--accent-hover)]"
                     }`}
                   >
                     {item.label}
@@ -121,15 +127,15 @@ export default function Features({
                     />
 
                     {/* Details panel under the phone, matching same width */}
-                    <div className="relative mt-3 flex h-48 flex-1 flex-col overflow-hidden rounded-b-xl bg-white p-5 text-center">
+                    <div className="relative mt-3 gap-2 flex h-48 flex-1 flex-col overflow-hidden rounded-b-xl bg-white text-center">
                       {/* Fixed-height title block so underline aligns across cards */}
-                      <div className="mx-auto flex h-20 w-full flex-col items-center justify-end">
+                      <div className="mx-auto flex gap-2 h-10 w-full flex-col items-center justify-end">
                         <h3 className="text-base text-xl font-semibold leading-tight text-zinc-900">
                           {item.title}
                         </h3>
-                        <div className="mt-1 h-1 w-16 rounded-full bg-red-600" />
+                        <div className="h-1 w-16 rounded-full bg-red-600" />
                       </div>
-                      <p className="mt-2 text-lg leading-6 text-zinc-600">
+                      <p className="mt-2 text-lg leading-7 text-zinc-600">
                         {item.description}
                       </p>
                       {item.content ? (

@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
+import { branding } from "@/config/branding";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-montserrat",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,8 +32,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable}`}>
+      <body 
+        className={`antialiased min-h-screen flex flex-col`}
+        style={
+          {
+            "--bg-primary": branding.colors.background.primary,
+            "--bg-secondary": branding.colors.background.secondary,
+            "--text-primary": branding.colors.text.primary,
+            "--text-inverse": branding.colors.text.inverse,
+            "--accent-primary": branding.colors.accent.primary,
+            "--accent-hover": branding.colors.accent.hover,
+            "--border": branding.colors.border,
+          } as React.CSSProperties
+        } 
+      >
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
