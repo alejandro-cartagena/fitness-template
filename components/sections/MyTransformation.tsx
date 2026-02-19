@@ -163,7 +163,7 @@ export default function MyTransformation({
           {/* Before */}
           <div className="group relative">
             <div className="overflow-hidden rounded-2xl border border-(--border) bg-white shadow-lg ring-1 ring-black/5 transition duration-300 group-hover:shadow-xl">
-              <div className="relative aspect-4/5 w-full overflow-hidden bg-zinc-100">
+              <div className="relative aspect-5/5 w-full overflow-hidden bg-zinc-100">
                 <Image
                   src={beforeImageUrl}
                   alt="Before transformation"
@@ -188,7 +188,7 @@ export default function MyTransformation({
           {/* After */}
           <div className="group relative">
             <div className="overflow-hidden rounded-2xl border border-(--border) bg-white shadow-lg ring-1 ring-black/5 transition duration-300 group-hover:shadow-xl">
-              <div className="relative aspect-4/5 w-full overflow-hidden bg-zinc-100">
+              <div className="relative aspect-5/5 w-full overflow-hidden bg-zinc-100">
                 <Image
                   src={afterImageUrl}
                   alt="After transformation"
