@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
+import { useEffect, useRef, useState } from "react";
 
 const mont = Montserrat({
   subsets: ["latin"],
@@ -20,9 +21,78 @@ interface MyTransformationProps {
   stats?: { value: string; label: string }[];
 }
 
+interface AnimatedStatProps {
+  value: string;
+  label: string;
+  isVisible: boolean;
+}
+
+function AnimatedStat({ value, label, isVisible }: AnimatedStatProps) {
+  const [displayValue, setDisplayValue] = useState<string>("0");
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (!isVisible || hasAnimated) return;
+
+    // Parse the value to extract number and suffix
+    const match = value.match(/^(\d+)(.*)$/);
+    if (!match) {
+      setDisplayValue(value);
+      setHasAnimated(true);
+      return;
+    }
+
+    const numericValue = parseInt(match[1], 10);
+    const suffix = match[2]; // "+", "%", or ""
+
+    if (isNaN(numericValue)) {
+      setDisplayValue(value);
+      setHasAnimated(true);
+      return;
+    }
+
+    setHasAnimated(true);
+    const duration = 2000; // 2 seconds
+    const startTime = Date.now();
+    const startValue = 0;
+    const endValue = numericValue;
+
+    const animate = () => {
+      const now = Date.now();
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Easing function for smooth animation (ease-out)
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const currentValue = Math.floor(startValue + (endValue - startValue) * easeOut);
+
+      setDisplayValue(`${currentValue}${suffix}`);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setDisplayValue(value); // Ensure final value is exact
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, hasAnimated, value]);
+
+  return (
+    <div className="text-center">
+      <dt className="text-2xl font-extrabold tracking-tight text-(--accent-primary) sm:text-3xl">
+        {displayValue}
+      </dt>
+      <dd className="mt-1 text-sm font-medium uppercase tracking-wider text-zinc-500">
+        {label}
+      </dd>
+    </div>
+  );
+}
+
 const defaultStats = [
   { value: "50+", label: "lbs lost" },
-  { value: "2", label: "years committed" },
+  { value: "6", label: "years committed" },
   { value: "100%", label: "mindset shift" },
 ];
 
@@ -37,6 +107,35 @@ export default function MyTransformation({
   quote = "If I can do it, you can too. It starts with one decision.",
   stats = defaultStats,
 }: MyTransformationProps) {
+  const statsRef = useRef<HTMLDListElement>(null);
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsStatsVisible(true);
+            // Disconnect after first trigger to prevent re-animation
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the element is visible
+        rootMargin: "0px",
+      }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section
       aria-labelledby="transformation-heading"
@@ -124,16 +223,14 @@ export default function MyTransformation({
           <blockquote className="max-w-xl text-center text-lg font-medium italic leading-relaxed text-(--text-primary) sm:text-xl">
             &ldquo;{quote}&rdquo;
           </blockquote>
-          <dl className="flex flex-wrap justify-center gap-8 sm:gap-12">
+          <dl ref={statsRef} className="flex flex-wrap justify-center gap-8 sm:gap-12">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <dt className="text-2xl font-extrabold tracking-tight text-(--accent-primary) sm:text-3xl">
-                  {stat.value}
-                </dt>
-                <dd className="mt-1 text-sm font-medium uppercase tracking-wider text-zinc-500">
-                  {stat.label}
-                </dd>
-              </div>
+              <AnimatedStat
+                key={stat.label}
+                value={stat.value}
+                label={stat.label}
+                isVisible={isStatsVisible}
+              />
             ))}
           </dl>
         </div>
