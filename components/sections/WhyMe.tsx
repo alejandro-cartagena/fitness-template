@@ -1,5 +1,6 @@
 "use client";
 
+import { branding } from "@/config/branding";
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
 
@@ -35,7 +36,7 @@ export default function WhyMe({
     <section
       aria-labelledby="why-me-heading"
       className="relative isolate w-full overflow-hidden py-16 sm:py-20 lg:py-28"
-      style={{ backgroundColor: "var(--bg-secondary)" }}
+      style={{ backgroundColor: branding.colors.background.primary }}
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Main title */}

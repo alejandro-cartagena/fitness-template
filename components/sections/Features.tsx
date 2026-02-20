@@ -1,154 +1,162 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { branding } from "@/config/branding";
 
-import { useState } from "react";
-import type { ReactNode } from "react";
-import PhoneFrame from "@/components/ui/PhoneFrame";
-import { Montserrat } from "next/font/google";
-
-const mont = Montserrat({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-});
-
-type Feature = {
-  id: string;
-  label: string;
+interface FeatureItem {
   title: string;
   description: string;
-  screenshotUrl?: string;
-  content?: ReactNode;
-};
-
-interface FeaturesProps {
-  eyebrow?: string;
-  heading?: string;
-  items?: Feature[];
 }
 
-const defaultItems: Feature[] = [
+const features: FeatureItem[] = [
   {
-    id: "workouts",
-    label: "Workout Sessions",
-    title: "Training Plans",
+    title: "Fully Personalized Training",
     description:
-      "Structured programming tailored to your goals with progressive overload and clear milestones.",
-    screenshotUrl:
-      "https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1200&auto=format&fit=crop",
+      "Built around your body goals, schedule, and experience level for long-term muscle gain and fat loss.",
   },
   {
-    id: "nutrition",
-    label: "Nutrition / Recipes",
-    title: "Sustainable Nutrition",
+    title: "1-on-1 Access + Weekly Calls",
     description:
-      "Macro-friendly meals, grocery lists, and flexible guidance to fit busy lifestyles.",
-    screenshotUrl:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop",
+      "Direct communication for fast feedback, form checks, and program adjustments.",
   },
   {
-    id: "progress",
-    label: "Progress Tracking",
-    title: "Data-Driven Results",
+    title: "Lift Technique + Program Analysis",
     description:
-      "Weekly check-ins, measurements, and photo logs to keep you accountable and improving.",
-    screenshotUrl:
-      "https://images.unsplash.com/photo-1758875568758-daad5146648c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Technical breakdown of your key lifts and training split for optimal progression and injury prevention.",
   },
   {
-    id: "dm",
-    label: "Direct Message",
-    title: "1:1 Support",
+    title: "Progress Accountability",
     description:
-      "Direct access for quick feedback, form checks, and motivation when you need it most.",
-    screenshotUrl:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop",
+      "Training consistency and execution are monitored so your results stay on track.",
+  },
+  {
+    title: "Nutrition Guidance",
+    description:
+      "Nutrition aligned with training demands, recovery, and body composition goals.",
+  },
+  {
+    title: "Private Charm Fitness Community",
+    description:
+      "Train alongside others focused on real body transformations like yourself.",
   },
 ];
 
-export default function Features({
-  eyebrow = "Charm Fitness",
-  heading = "What You Get With My Coaching",
-  items = defaultItems,
-}: FeaturesProps) {
-  const [activeId, setActiveId] = useState<string | null>(null);
+const systemImageUrl =
+  "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop";
 
-  const handleToggle = (id: string) => {
-    setActiveId((prev) => (prev === id ? null : id));
-  };
-
+export default function Features() {
   return (
-    <section className="relative isolate w-full py-14 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Eyebrow */}
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-primary)]">
-          {eyebrow}
-        </p>
-        {/* Heading */}
-        <h2 className="mt-2 text-center text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">
-          {heading}
-        </h2>
+    <section
+      className="w-full py-16 sm:py-20 lg:py-24"
+      style={{ backgroundColor: branding.colors.background.secondary }}
+      aria-labelledby="system-heading"
+    >
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <header className="text-center">
+          <h2
+            id="system-heading"
+            className="text-3xl font-extrabold italic uppercase tracking-tight sm:text-4xl lg:text-5xl"
+            style={{ color: branding.colors.text.primary }}
+          >
+            The Charm Fitness System
+          </h2>
+          <p
+            className="mx-auto mt-3 max-w-2xl text-base leading-relaxed sm:text-lg"
+            style={{ color: branding.colors.text.secondary }}
+          >
+            Specific coaching for individuals who want to maximize their
+            physique and overall health.
+          </p>
 
-        {/* Aligned label + card columns */}
-        <div className="mt-8 grid grid-cols-1 gap-10 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((item) => {
-            const isActive = activeId === item.id;
-            return (
-              <div key={item.id} className="flex h-full flex-col gap-3">
-                {/* Label directly above its card, same width as phone */}
-                <div className="mx-auto w-full max-w-[260px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-none">
-                  <button
-                    type="button"
-                    aria-pressed={isActive}
-                    onClick={() => handleToggle(item.id)}
-                    className={`${mont.className} w-full rounded-lg px-3 py-2 text-center text-[12px] md:text-base font-semibold uppercase tracking-wide shadow-sm transition-colors ${
-                      isActive
-                        ? "bg-red-600 text-white"
-                        : "bg-[var(--accent-primary)] text-white hover:bg-[var(--accent-hover)]"
-                    }`}
+          
+        </header>
+
+        <h3
+              className="text-xl font-bold sm:text-2xl text-center mt-12"
+              style={{ color: branding.colors.text.primary }}
+            >  
+                What You Get With Charm Fitness:
+            </h3>
+
+        {/* Two-column: features list (left) + image (right) */}
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:mt-6 lg:gap-14 lg:items-start">
+
+          {/* Left: feature list */}
+          <div className="min-w-0">
+            
+            <ul className="mt-6 space-y-6 sm:mt-8 sm:space-y-7">
+              {features.map((item, index) => (
+                <li key={index} className="flex gap-4">
+                  <span
+                    className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full sm:h-7 sm:w-7"
+                    style={{
+                      backgroundColor: branding.colors.accent.primary,
+                      color: branding.colors.text.inverse,
+                    }}
+                    aria-hidden
                   >
-                    {item.label}
-                  </button>
-                </div>
-
-                {/* Card: the iPhone is the visual card, text lives below */}
-                <article
-                  className={`group relative flex h-full flex-col rounded-xl transition will-change-transform ${
-                    isActive ? "ring-2 ring-red-200" : "hover:-translate-y-1"
-                  } ${activeId && !isActive ? "opacity-60" : "opacity-100"}`}
-                >
-                  {/* Constrain width on mobile/tablet; full width on desktop */}
-                  <div className="mx-auto w-full max-w-[260px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-none">
-                    <PhoneFrame
-                      className="w-full"
-                      imageUrl={
-                        item.screenshotUrl ??
-                        "https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1200&auto=format&fit=crop"
-                      }
-                      alt={`${item.title} preview`}
-                    />
-
-                    {/* Details panel under the phone, matching same width */}
-                    <div className="relative mt-3 gap-2 flex h-48 flex-1 flex-col overflow-hidden rounded-b-xl bg-white text-center">
-                      {/* Fixed-height title block so underline aligns across cards */}
-                      <div className="mx-auto flex gap-2 h-10 w-full flex-col items-center justify-end">
-                        <h3 className="text-base text-xl font-semibold leading-tight text-zinc-900">
-                          {item.title}
-                        </h3>
-                        <div className="h-1 w-16 rounded-full bg-red-600" />
-                      </div>
-                      <p className="mt-2 text-lg leading-7 text-zinc-600">
-                        {item.description}
-                      </p>
-                      {item.content ? (
-                        <div className="mt-4 text-sm text-zinc-700">
-                          {item.content}
-                        </div>
-                      ) : null}
-                    </div>
+                    <svg
+                      className="h-3.5 w-3.5 sm:h-4 sm:w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12l5 5L20 7" />
+                    </svg>
+                  </span>
+                  <div>
+                    <span
+                      className="font-bold"
+                      style={{ color: branding.colors.text.primary }}
+                    >
+                      {item.title}
+                    </span>
+                    <p
+                      className="mt-1 text-sm leading-relaxed sm:text-base"
+                      style={{ color: branding.colors.text.secondary }}
+                    >
+                      {item.description}
+                    </p>
                   </div>
-                </article>
-              </div>
-            );
-          })}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right: image */}
+          <div className="relative min-h-[420px] min-w-0 overflow-hidden rounded-xl shadow-lg ring-1 ring-black/5 md:min-h-[480px] lg:mt-2 lg:min-h-[560px] md:self-center">
+            <Image
+              src={systemImageUrl}
+              alt="Charm Fitness coaching — focused training for your goals"
+              fill
+              className="object-cover"
+              sizes="(max-width: 767px) 100vw, 50vw"
+              priority={false}
+            />
+          </div>
+        </div>
+
+        {/* CTA + disclaimer */}
+        <div className="mt-12 flex flex-col items-center gap-3 text-center sm:mt-14">
+          <Link
+            href="/#contact"
+            className="inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white transition hover:opacity-95 active:scale-[0.98]"
+            style={{
+              backgroundColor: branding.colors.accent.primary,
+              border: `2px solid ${branding.colors.text.primary}`,
+            }}
+          >
+            Apply for Charm Fitness
+          </Link>
+          <p
+            className="text-sm"
+            style={{ color: branding.colors.text.secondary }}
+          >
+            Limited spots to maintain coaching quality.
+          </p>
         </div>
       </div>
     </section>
