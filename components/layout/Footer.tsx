@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import Button from "@/components/ui/Button";
 import SocialIcons from "@/components/ui/SocialIcons";
-import { navigation } from "@/config/navigation";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -19,13 +19,14 @@ export default function Footer() {
                 Get Started Now
             </h3>
             <div className="mt-4">
-              <Link
+              <Button
                 href="/#contact"
-                className="tracking-wider uppercase inline-flex items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm transition hover:bg-zinc-100 active:scale-95"
+                variant="inverse"
+                className="shadow-sm"
                 aria-label="Join my team"
               >
                 Join the Movement
-              </Link>
+              </Button>
             </div>
           </div>
 
@@ -33,7 +34,7 @@ export default function Footer() {
           <div className="sm:hidden h-px w-full bg-white/10" />
 
           <div className="flex md:flex-row flex-col md:gap-8 gap-4 text-center md:text-left mx-auto md:mx-0">
-            {navigation.map((item) => (
+            {siteConfig.navigation.map((item) => (
               <Link key={item.href} href={item.href} className="text-sm uppercase tracking-wider text-zinc-400 transition-colors hover:text-zinc-100">
                 {item.label}
               </Link>

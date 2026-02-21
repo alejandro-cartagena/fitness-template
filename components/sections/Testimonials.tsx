@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useRef, useCallback } from "react";
 import { Montserrat } from "next/font/google";
-import { branding } from "@/config/branding";
-import Link from "next/link";
+import { siteConfig } from "@/config/site";
+import Button from "@/components/ui/Button";
 
 const mont = Montserrat({
     subsets: ["latin"],
@@ -71,7 +71,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <article
       className="flex h-full flex-col rounded-xl border bg-white shadow-md ring-1 ring-black/5 overflow-hidden"
-      style={{ borderColor: branding.colors.border }}
+      style={{ borderColor: siteConfig.branding.colors.border }}
     >
       {/* Before / After side by side */}
       <div className="grid grid-cols-2 gap-px bg-zinc-200">
@@ -85,7 +85,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           />
           <span
             className="absolute bottom-2 left-2 rounded px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-white shadow"
-            style={{ backgroundColor: branding.colors.text.primary }}
+            style={{ backgroundColor: siteConfig.branding.colors.text.primary }}
           >
             Before
           </span>
@@ -100,7 +100,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           />
           <span
             className="absolute bottom-2 left-2 rounded px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-white shadow"
-            style={{ backgroundColor: branding.colors.accent.primary }}
+            style={{ backgroundColor: siteConfig.branding.colors.accent.primary }}
           >
             After
           </span>
@@ -111,21 +111,21 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       <div className="flex flex-1 flex-col gap-2 px-4 py-4 sm:px-5 sm:py-5">
         <p
           className="text-sm leading-relaxed sm:text-base"
-          style={{ color: branding.colors.text.secondary }}
+          style={{ color: siteConfig.branding.colors.text.secondary }}
         >
           &ldquo;{testimonial.quote}&rdquo;
         </p>
         <div className="mt-auto">
           <p
             className="font-semibold"
-            style={{ color: branding.colors.text.primary }}
+            style={{ color: siteConfig.branding.colors.text.primary }}
           >
             {testimonial.name}
           </p>
           {testimonial.result && (
             <p
               className="text-xs sm:text-sm"
-              style={{ color: branding.colors.text.secondary }}
+              style={{ color: siteConfig.branding.colors.text.secondary }}
             >
               {testimonial.result}
             </p>
@@ -151,21 +151,27 @@ export default function Testimonials() {
   return (
     <section
       className="w-full py-16 sm:py-20 lg:py-24"
-      style={{ backgroundColor: branding.colors.background.primary }}
+      style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
       aria-labelledby="testimonials-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <header className="text-center">
+          <p
+            className="text-xs font-semibold uppercase tracking-[0.2em]"
+            style={{ color: siteConfig.branding.colors.accent.primary }}
+          >
+            Results
+          </p>
           <h2
             id="testimonials-heading"
-            className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl"
-            style={{ color: branding.colors.text.primary }}
+            className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl"
+            style={{ color: siteConfig.branding.colors.text.primary }}
           >
             Client Transformations
           </h2>
           <p
             className="mx-auto mt-2 max-w-xl text-base sm:text-lg"
-            style={{ color: branding.colors.text.secondary }}
+            style={{ color: siteConfig.branding.colors.text.secondary }}
           >
             Real results from real people. Before and after, side by side.
           </p>
@@ -207,7 +213,7 @@ export default function Testimonials() {
               onClick={() => scroll("prev")}
               aria-label="Previous testimonials"
               className="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-md transition hover:opacity-90 active:scale-95 disabled:opacity-40"
-              style={{ backgroundColor: branding.colors.accent.primary }}
+              style={{ backgroundColor: siteConfig.branding.colors.accent.primary }}
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -218,7 +224,7 @@ export default function Testimonials() {
               onClick={() => scroll("next")}
               aria-label="Next testimonials"
               className="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-md transition hover:opacity-90 active:scale-95 disabled:opacity-40"
-              style={{ backgroundColor: branding.colors.accent.primary }}
+              style={{ backgroundColor: siteConfig.branding.colors.accent.primary }}
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -228,13 +234,10 @@ export default function Testimonials() {
         </div>
       </div>
       {/* CTA */}
-        <div className="mt-10 flex justify-center sm:mt-12">
-          <Link
-            href="/#contact"
-            className={`${mont.className} inline-flex items-center justify-center rounded-lg border-2 border-[var(--accent-primary)] bg-white px-8 py-3 text-sm font-semibold uppercase tracking-wider text-[var(--accent-primary)] transition-colors hover:bg-[var(--accent-primary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:ring-offset-2`}
-          >
+        <div className={`mt-10 flex justify-center sm:mt-12 ${mont.className}`}>
+          <Button href="/#contact" variant="outline" className="rounded-lg px-8 py-3">
             Join the Movement
-          </Link>
+          </Button>
         </div>
     </section>
   );

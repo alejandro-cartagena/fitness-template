@@ -1,7 +1,7 @@
 import { FaInstagram, FaTiktok } from "react-icons/fa";
 import type { IconType } from "react-icons";
 import type { SocialPlatform } from "@/types/social";
-import { socials } from "@/config/socials";
+import { siteConfig } from "@/config/site";
 
 // Only map icons we support; others will be ignored gracefully
 const iconMap: Partial<Record<SocialPlatform, IconType>> = {
@@ -12,7 +12,7 @@ const iconMap: Partial<Record<SocialPlatform, IconType>> = {
 export default function SocialIcons() {
   return (
     <div className="flex gap-4">
-      {socials.map((social) => {
+      {siteConfig.socials.map((social) => {
         const Icon = iconMap[social.platform];
 
         if (!Icon) return null;

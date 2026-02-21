@@ -1,8 +1,8 @@
 "use client";
 
-import { branding } from "@/config/branding";
+import { siteConfig } from "@/config/site";
+import Button from "@/components/ui/Button";
 import { Montserrat } from "next/font/google";
-import Link from "next/link";
 
 const mont = Montserrat({
   subsets: ["latin"],
@@ -36,7 +36,7 @@ export default function WhyMe({
     <section
       aria-labelledby="why-me-heading"
       className="relative isolate w-full overflow-hidden py-16 sm:py-20 lg:py-28"
-      style={{ backgroundColor: branding.colors.background.primary }}
+      style={{ backgroundColor: siteConfig.branding.colors.background.primary }}
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Main title */}
@@ -116,13 +116,10 @@ export default function WhyMe({
         </ul>
 
         {/* CTA */}
-        <div className="mt-10 flex justify-center sm:mt-12">
-          <Link
-            href={ctaHref}
-            className={`${mont.className} inline-flex items-center justify-center rounded-lg border-2 border-[var(--accent-primary)] bg-white px-8 py-3 text-sm font-semibold uppercase tracking-wider text-[var(--accent-primary)] transition-colors hover:bg-[var(--accent-primary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:ring-offset-2`}
-          >
+        <div className={`mt-10 flex justify-center sm:mt-12 ${mont.className}`}>
+          <Button href={ctaHref} variant="outline" className="rounded-lg px-8 py-3">
             {ctaText}
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

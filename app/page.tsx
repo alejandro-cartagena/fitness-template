@@ -1,3 +1,4 @@
+import About from "@/components/sections/About";
 import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
 import AppFeatures from "@/components/sections/AppFeatures";
@@ -13,6 +14,7 @@ export default function Home() {
       <WhyMe />
       <Features />
       <AppFeatures />
+      <About />
       <MyTransformation />
       <Testimonials />
       <Faq />

@@ -133,7 +133,7 @@ export default function AppFeatures({
                         <h3 className="text-base text-xl font-semibold leading-tight text-zinc-900">
                           {item.title}
                         </h3>
-                        <div className="h-1 w-16 rounded-full bg-red-600" />
+                        <div className="h-1 w-16 rounded-full bg-[var(--accent-primary)]" />
                       </div>
                       <p className="mt-2 text-lg leading-7 text-zinc-600">
                         {item.description}

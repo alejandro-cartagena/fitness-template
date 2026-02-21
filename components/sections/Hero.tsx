@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Button from "@/components/ui/Button";
 import { Montserrat } from "next/font/google";
 
 const mont = Montserrat({
@@ -24,7 +24,7 @@ export default function Hero({
   return (
     <section
       aria-label="Hero"
-      className="relative isolate h-[65vh] min-h-[520px] w-full overflow-hidden sm:h-[72vh] lg:h-[82vh]"
+      className="relative isolate h-[65vh] min-h-[520px] w-full overflow-hidden sm:h-[72vh] lg:h-[100vh]"
     >
       {/* Background image */}
       <div
@@ -38,7 +38,12 @@ export default function Hero({
       {/* Content */}
       <div className="relative z-10 mx-auto grid h-full max-w-5xl place-items-center px-4 text-center sm:px-6 lg:px-8">
         <div className="flex flex-col items-center">
-          <h1 className="font-extrabold uppercase tracking-tight text-[var(--text-inverse)]">
+          <h1
+            className="font-extrabold uppercase tracking-tight text-[var(--text-inverse)]"
+            style={{
+              textShadow: "2px 2px 4px rgba(0,0,0,0.85), 0 2px 10px rgba(0,0,0,0.60)",
+            }}
+          >
             <span className="block text-3xl leading-tight sm:text-5xl lg:text-6xl">
               {titleLines[0] ?? ""}
             </span>
@@ -54,13 +59,10 @@ export default function Hero({
           <div className="mt-3 h-1 w-20 bg-[var(--accent-primary)] sm:w-24" aria-hidden="true" />
 
           {/* CTA */}
-          <div className="mt-6">
-            <Link
-              href={ctaHref}
-              className={`${mont.className} inline-flex items-center justify-center rounded-md bg-[var(--accent-primary)] px-5 py-2.5 text-lg uppercase tracking-wider font-semibold text-white shadow-sm transition hover:bg-[var(--accent-hover)] active:scale-95`}
-            >
+          <div className={`mt-6 ${mont.className}`}>
+            <Button href={ctaHref} variant="primary" className="text-xl shadow-sm">
               {ctaLabel}
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
-import { branding } from "@/config/branding";
+import { siteConfig } from "@/config/site";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -37,13 +37,13 @@ export default function RootLayout({
         className={`antialiased min-h-screen flex flex-col`}
         style={
           {
-            "--bg-primary": branding.colors.background.primary,
-            "--bg-secondary": branding.colors.background.secondary,
-            "--text-primary": branding.colors.text.primary,
-            "--text-inverse": branding.colors.text.inverse,
-            "--accent-primary": branding.colors.accent.primary,
-            "--accent-hover": branding.colors.accent.hover,
-            "--border": branding.colors.border,
+            "--bg-primary": siteConfig.branding.colors.background.primary,
+            "--bg-secondary": siteConfig.branding.colors.background.secondary,
+            "--text-primary": siteConfig.branding.colors.text.primary,
+            "--text-inverse": siteConfig.branding.colors.text.inverse,
+            "--accent-primary": siteConfig.branding.colors.accent.primary,
+            "--accent-hover": siteConfig.branding.colors.accent.hover,
+            "--border": siteConfig.branding.colors.border,
           } as React.CSSProperties
         } 
       >

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useId } from "react";
-import { branding } from "@/config/branding";
+import { siteConfig } from "@/config/site";
 
 interface FaqItem {
   id: string;
@@ -64,7 +64,7 @@ function FaqAccordionItem({
   return (
     <div
       className="group border-b transition-colors last:border-b-0"
-      style={{ borderColor: branding.colors.border }}
+      style={{ borderColor: siteConfig.branding.colors.border }}
     >
       <h3>
         <button
@@ -74,14 +74,14 @@ function FaqAccordionItem({
           id={headingId}
           onClick={onToggle}
           className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold transition-colors hover:opacity-90 sm:py-6"
-          style={{ color: branding.colors.text.primary }}
+          style={{ color: siteConfig.branding.colors.text.primary }}
         >
           <span className="pr-4 text-base sm:text-lg">{item.question}</span>
           <span
             className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-200"
             style={{
-              backgroundColor: branding.colors.accent.primary,
-              color: branding.colors.text.inverse,
+              backgroundColor: siteConfig.branding.colors.accent.primary,
+              color: siteConfig.branding.colors.text.inverse,
             }}
             aria-hidden
           >
@@ -111,7 +111,7 @@ function FaqAccordionItem({
         <div className="overflow-hidden">
           <p
             className="pb-5 text-sm leading-relaxed sm:pb-6 sm:text-base"
-            style={{ color: branding.colors.text.secondary }}
+            style={{ color: siteConfig.branding.colors.text.secondary }}
           >
             {item.answer}
           </p>
@@ -121,7 +121,11 @@ function FaqAccordionItem({
   );
 }
 
-export default function Faq() {
+interface FaqProps {
+  eyebrow?: string;
+}
+
+export default function Faq({ eyebrow = "Support" }: FaqProps) {
   const [openId, setOpenId] = useState<string | null>(defaultFaqs[0]?.id ?? null);
   const baseId = useId();
 
@@ -132,27 +136,27 @@ export default function Faq() {
   return (
     <section
       className="w-full py-16 sm:py-20 lg:py-24"
-      style={{ backgroundColor: branding.colors.background.secondary }}
+      style={{ backgroundColor: siteConfig.branding.colors.background.primary }}
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <header className="text-center">
           <p
-            className="text-xs font-semibold uppercase tracking-[0.2em] sm:text-sm"
-            style={{ color: branding.colors.accent.primary }}
+            className="text-xs font-semibold uppercase tracking-[0.2em]"
+            style={{ color: siteConfig.branding.colors.accent.primary }}
           >
-            Support
+            {eyebrow}
           </p>
           <h2
             id="faq-heading"
             className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl"
-            style={{ color: branding.colors.text.primary }}
+            style={{ color: siteConfig.branding.colors.text.primary }}
           >
             Frequently Asked Questions
           </h2>
           <p
             className="mx-auto mt-3 max-w-lg text-base sm:text-lg"
-            style={{ color: branding.colors.text.secondary }}
+            style={{ color: siteConfig.branding.colors.text.secondary }}
           >
             Quick answers to common questions. Still have one? Reach out.
           </p>
@@ -160,7 +164,7 @@ export default function Faq() {
 
         <div
           className="mt-10 overflow-hidden rounded-2xl border bg-white shadow-sm sm:mt-12"
-          style={{ borderColor: branding.colors.border }}
+          style={{ borderColor: siteConfig.branding.colors.border }}
         >
           <div className="divide-y-0 px-4 sm:px-6">
             {defaultFaqs.map((item, index) => (
