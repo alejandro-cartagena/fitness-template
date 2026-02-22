@@ -35,35 +35,36 @@ export default function About({
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Desktop: images left, text right. Mobile: stack. */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14 md:items-center">
-          {/* Left: image collage — two stacked portraits + one larger image to the right */}
-          <div className="min-w-0 grid grid-cols-2 gap-3 sm:gap-4">
-            <div className="flex flex-col gap-3 sm:gap-4">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-xl border-2 border-zinc-300 bg-zinc-100 shadow-[0_4px_14px_rgba(0,0,0,0.12)]">
-                <Image
-                  src={imageSmall1}
-                  alt="Fitness trainer — training and lifestyle"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1023px) 50vw, 200px"
-                />
-              </div>
-              <div className="relative aspect-[3/4] overflow-hidden rounded-xl border-2 border-zinc-300 bg-zinc-100 shadow-[0_4px_14px_rgba(0,0,0,0.12)]">
-                <Image
-                  src={imageSmall2}
-                  alt="Fitness trainer — gym and coaching"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1023px) 50vw, 200px"
-                />
-              </div>
+          {/* Left: image collage — top row: two images; bottom row: full-width on tablet and down */}
+          <div className="min-w-0 grid grid-cols-2 grid-rows-[auto_auto] gap-3 sm:gap-4">
+            {/* Top left */}
+            <div className="relative aspect-[3/4] overflow-hidden rounded-xl border-2 border-zinc-300 bg-zinc-100 shadow-[0_4px_14px_rgba(0,0,0,0.12)] col-start-1 row-start-1">
+              <Image
+                src={imageSmall1}
+                alt="Fitness trainer — training and lifestyle"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1023px) 50vw, 200px"
+              />
             </div>
-            <div className="relative aspect-[3/4] overflow-hidden rounded-xl border-2 border-zinc-300 bg-zinc-100 shadow-[0_4px_14px_rgba(0,0,0,0.12)] lg:aspect-[3/5] lg:self-center">
+            {/* Top right — on lg spans both rows */}
+            <div className="relative aspect-[3/4] overflow-hidden rounded-xl border-2 border-zinc-300 bg-zinc-100 shadow-[0_4px_14px_rgba(0,0,0,0.12)] col-start-2 row-start-1 lg:row-span-2 lg:aspect-[3/5] lg:self-center">
               <Image
                 src={imageMain}
                 alt="Fitness trainer — about"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1023px) 50vw, 260px"
+              />
+            </div>
+            {/* Bottom — full width on tablet and down, shorter height; left column only on lg */}
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl border-2 border-zinc-300 bg-zinc-100 shadow-[0_4px_14px_rgba(0,0,0,0.12)] col-span-2 col-start-1 row-start-2 lg:col-span-1 lg:aspect-[3/4]">
+              <Image
+                src={imageSmall2}
+                alt="Fitness trainer — gym and coaching"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1023px) 100vw, 200px"
               />
             </div>
           </div>

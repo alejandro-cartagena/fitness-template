@@ -177,7 +177,7 @@ export default function MyTransformation({
                   aria-hidden="true"
                 />
                 <span
-                  className={`${mont.className} absolute bottom-4 left-4 rounded-md bg-black/60 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-white backdrop-blur-sm`}
+                  className={`${mont.className} absolute bottom-4 left-4 rounded-md bg-white px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-black`}
                 >
                   {beforeLabel}
                 </span>

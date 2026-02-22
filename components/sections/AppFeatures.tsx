@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
-import PhoneFrame from "@/components/ui/PhoneFrame";
+import Iphone from "@/components/ui/iphone";
 import { Montserrat } from "next/font/google";
 
 const mont = Montserrat({
@@ -94,7 +94,7 @@ export default function AppFeatures({
             return (
               <div key={item.id} className="flex h-full flex-col gap-3">
                 {/* Label directly above its card, same width as phone */}
-                <div className="mx-auto w-full max-w-[260px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-none">
+                <div className="mx-auto w-full max-w-[260px] sm:max-w-[280px] md:max-w-[240px] lg:max-w-none">
                   <button
                     type="button"
                     aria-pressed={isActive}
@@ -116,14 +116,13 @@ export default function AppFeatures({
                   } ${activeId && !isActive ? "opacity-60" : "opacity-100"}`}
                 >
                   {/* Constrain width on mobile/tablet; full width on desktop */}
-                  <div className="mx-auto w-full max-w-[260px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-none">
-                    <PhoneFrame
+                  <div className="mx-auto w-full max-w-[260px] sm:max-w-[280px] md:max-w-[240px] lg:max-w-none">
+                    <Iphone
                       className="w-full"
-                      imageUrl={
+                      src={
                         item.screenshotUrl ??
                         "https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1200&auto=format&fit=crop"
                       }
-                      alt={`${item.title} preview`}
                     />
 
                     {/* Details panel under the phone, matching same width */}

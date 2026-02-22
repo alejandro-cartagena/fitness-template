@@ -84,8 +84,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
             sizes="(max-width: 1023px) 50vw, 25vw"
           />
           <span
-            className="absolute bottom-2 left-2 rounded px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-white shadow"
-            style={{ backgroundColor: siteConfig.branding.colors.text.primary }}
+            className="absolute bottom-2 left-2 rounded bg-white px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-black shadow"
           >
             Before
           </span>
@@ -192,7 +191,7 @@ export default function Testimonials() {
               <div
                 key={t.id}
                 data-testimonial-card
-                className="w-[85vw] shrink-0 snap-center sm:w-[75vw] md:w-[calc(50%-12px)] lg:w-[calc(50%-12px)]"
+                className="min-w-full w-full shrink-0 snap-center lg:min-w-0 lg:w-[calc(50%-12px)]"
               >
                 <TestimonialCard testimonial={t} />
               </div>
