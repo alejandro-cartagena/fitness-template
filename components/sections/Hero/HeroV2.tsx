@@ -46,7 +46,7 @@ export default function HeroV2({
   return (
     <section
       aria-label="Hero"
-      className="relative flex min-h-[90vh] w-full flex-col overflow-hidden lg:min-h-[85vh]"
+      className="relative flex min-h-screen w-full flex-col overflow-hidden"
     >
       {/* Full-bleed background image at all screen sizes */}
       <div className="absolute inset-0 overflow-hidden">
