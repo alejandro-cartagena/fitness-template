@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
+import Container from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 import Button from "@/components/ui/Button";
 import Carousel, { CarouselSlide } from "@/components/ui/Carousel";
@@ -142,7 +143,7 @@ export default function Testimonials() {
       style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
       aria-labelledby="testimonials-heading"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <Container>
         <header className="text-center">
           <p
             className="text-xs font-semibold uppercase tracking-[0.2em]"
@@ -182,13 +183,13 @@ export default function Testimonials() {
             ))}
           </Carousel>
         </div>
-      </div>
-      {/* CTA */}
+        {/* CTA */}
         <div className={`mt-10 flex justify-center sm:mt-12 ${mont.className}`}>
           <Button href="/#contact" variant="outline" className="rounded-lg px-8 py-3">
             Join the Movement
           </Button>
         </div>
+      </Container>
     </section>
   );
 }

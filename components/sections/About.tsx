@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Container from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 
 const imageMain =
@@ -32,7 +33,7 @@ export default function About({
       style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
       aria-labelledby="about-heading"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <Container>
         {/* Desktop: images left, text right. Mobile: stack. */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-14 md:items-center">
           {/* Left: image collage — top row: two images; bottom row: full-width on tablet and down */}
@@ -100,7 +101,7 @@ export default function About({
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

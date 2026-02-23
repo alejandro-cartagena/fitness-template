@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 
 interface FeatureItem {
@@ -54,7 +55,7 @@ export default function Features({ eyebrow = "Features" }: FeaturesProps) {
       style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
       aria-labelledby="system-heading"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <Container>
         {/* Header */}
         <header className="text-center">
           <p
@@ -166,7 +167,7 @@ export default function Features({ eyebrow = "Features" }: FeaturesProps) {
             Limited spots to maintain coaching quality.
           </p>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

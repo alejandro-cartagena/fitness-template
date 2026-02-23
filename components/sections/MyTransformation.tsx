@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
+import Container from "@/components/ui/Container";
 
 const mont = Montserrat({
   subsets: ["latin"],
@@ -142,7 +143,7 @@ export default function MyTransformation({
       className="relative isolate w-full overflow-hidden py-16 sm:py-20 lg:py-28"
       style={{ backgroundColor: "var(--bg-primary)" }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <Container>
         {/* Eyebrow */}
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-(--accent-primary)">
           {eyebrow}
@@ -234,7 +235,7 @@ export default function MyTransformation({
             ))}
           </dl>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

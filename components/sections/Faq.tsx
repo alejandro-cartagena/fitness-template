@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useId } from "react";
+import Container from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 import FaqAccordionItem from "@/components/ui/FaqAccordion";
 
@@ -67,7 +68,7 @@ export default function Faq({ eyebrow = "Support" }: FaqProps) {
       style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
       aria-labelledby="faq-heading"
     >
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <Container size="narrow">
         <header className="text-center">
           <p
             className="text-xs font-semibold uppercase tracking-[0.2em]"
@@ -107,7 +108,7 @@ export default function Faq({ eyebrow = "Support" }: FaqProps) {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

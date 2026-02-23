@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Container from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 
 const SCROLL_THRESHOLD = 24;
@@ -58,7 +59,7 @@ export default function Navbar() {
         className={`fixed inset-x-0 top-0 z-50 h-16 transition-all duration-300 ${navBg}`}
         aria-label="Main navigation"
       >
-        <div className="mx-auto flex h-full w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Container className="flex h-full w-full items-center justify-between">
           {/* Brand */}
           <Link
             href="/"
@@ -109,7 +110,7 @@ export default function Navbar() {
               } ${isOpen && !isScrolled ? "bg-white" : isOpen ? "bg-zinc-900" : ""}`}
             />
           </button>
-        </div>
+        </Container>
       </nav>
 
       {/* Overlay (portal-like, sibling to nav) */}

@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
 import { Montserrat } from "next/font/google";
 
 const mont = Montserrat({
@@ -36,7 +37,7 @@ export default function Hero({
       <div className={`absolute inset-0 ${overlayClassName}`} aria-hidden="true" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto grid h-full max-w-5xl place-items-center px-4 text-center sm:px-6 lg:px-8">
+      <Container className="relative z-10 grid h-full place-items-center text-center">
         <div className="flex flex-col items-center">
           <h1
             className="font-extrabold uppercase tracking-tight text-[var(--text-inverse)]"
@@ -65,7 +66,7 @@ export default function Hero({
             </Button>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

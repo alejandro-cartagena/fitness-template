@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
+import Container from "@/components/ui/Container";
 import Iphone from "@/components/ui/iphone";
 import { Montserrat } from "next/font/google";
 
@@ -77,7 +78,7 @@ export default function AppFeatures({
 
   return (
     <section className="relative isolate w-full py-14 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <Container>
         {/* Eyebrow */}
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-primary)]">
           {eyebrow}
@@ -149,7 +150,7 @@ export default function AppFeatures({
             );
           })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

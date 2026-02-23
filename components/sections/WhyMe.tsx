@@ -1,5 +1,6 @@
 "use client";
 
+import Container from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 import Button from "@/components/ui/Button";
 import VideoPlaceholder from "@/components/ui/VideoPlaceholder";
@@ -39,7 +40,7 @@ export default function WhyMe({
       className="relative isolate w-full overflow-hidden py-16 sm:py-20 lg:py-28"
       style={{ backgroundColor: siteConfig.branding.colors.background.primary }}
     >
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <Container size="narrow">
         {/* Main title */}
         <h2
           id="why-me-heading"
@@ -86,7 +87,7 @@ export default function WhyMe({
             {ctaText}
           </Button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

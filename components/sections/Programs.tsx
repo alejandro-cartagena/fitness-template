@@ -1,5 +1,6 @@
 "use client";
 
+import Container from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 import Button from "@/components/ui/Button";
 import { Montserrat } from "next/font/google";
@@ -267,7 +268,7 @@ export default function Programs({
       style={{ backgroundColor: colors.background.primary }}
       aria-labelledby="programs-heading"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <Container>
         <header className="text-center">
           <p
             className="text-xs font-semibold uppercase tracking-[0.2em]"
@@ -295,7 +296,7 @@ export default function Programs({
             <ProgramCard key={program.id} program={program} />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

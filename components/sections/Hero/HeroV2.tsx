@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 
@@ -66,9 +67,10 @@ export default function HeroV2({
         />
       </div>
 
-      {/* Content overlaid on image */}
-      <div className="relative z-10 flex min-h-[90vh] flex-col justify-end px-6 pb-14 pt-20 lg:justify-center lg:px-12 lg:pb-20 lg:pt-24 xl:px-16">
-        <div className="max-w-xl">
+      {/* Content overlaid on image — aligned with shared container */}
+      <div className="relative z-10 flex min-h-[90vh] flex-col justify-end pb-14 pt-20 lg:justify-center lg:pb-20 lg:pt-24">
+        <Container className="flex flex-col">
+          <div className="max-w-xl">
           <h1
             className={`${mont.className} text-3xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl`}
           >
@@ -93,7 +95,8 @@ export default function HeroV2({
               {secondaryCtaLabel}
             </Button>
           </div>
-        </div>
+          </div>
+        </Container>
       </div>
     </section>
   );

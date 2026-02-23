@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Container from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 import Button from "@/components/ui/Button";
 import SocialIcons from "@/components/ui/SocialIcons";
@@ -8,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-zinc-900 text-zinc-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <Container>
         {/* Top section: CTA on left, socials on right */}
         <div className="flex flex-col items-start justify-between gap-6 py-8 sm:flex-row sm:items-center sm:gap-8">
           <div className="max-w-xl text-center md:text-left mx-auto md:mx-0">
@@ -57,7 +58,7 @@ export default function Footer() {
             © {year} {siteConfig?.name ?? "Your Company"}. All rights reserved.
           </p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }
