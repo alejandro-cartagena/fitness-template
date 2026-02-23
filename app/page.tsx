@@ -11,12 +11,16 @@ import WhyMe from "@/components/sections/WhyMe";
 // Different Versions of the Hero Section
 import HeroV2 from "@/components/sections/Hero/HeroV2";
 
+// Different Versions of the Why Me Section
+import WhyMeV2 from "@/components/sections/WhyMe/WhyMeV2";
+
 export default function Home() {
   return (
     <div>
       {/* <Hero /> */}
       <HeroV2 />
-      <WhyMe />
+      {/* <WhyMe /> */}
+      <WhyMeV2 />
       <Features />
       <AppFeatures />
       <About />

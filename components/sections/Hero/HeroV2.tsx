@@ -68,7 +68,7 @@ export default function HeroV2({
       </div>
 
       {/* Content overlaid on image — aligned with shared container */}
-      <div className="relative z-10 flex min-h-[90vh] flex-col justify-end pb-14 pt-20 lg:justify-center lg:pb-20 lg:pt-24">
+      <div className="relative z-10 flex min-h-[90vh] flex-col justify-center pb-14 pt-20 lg:justify-center lg:pb-20 lg:pt-24">
         <Container className="flex flex-col">
           <div className="max-w-xl">
           <h1
