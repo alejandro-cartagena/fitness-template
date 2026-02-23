@@ -24,7 +24,7 @@ export default function Hero({
   return (
     <section
       aria-label="Hero"
-      className="relative isolate h-[65vh] min-h-[520px] w-full overflow-hidden sm:h-[72vh] lg:h-[100vh]"
+      className="relative isolate h-screen min-h-[520px] w-full overflow-hidden"
     >
       {/* Background image */}
       <div
@@ -60,7 +60,7 @@ export default function Hero({
 
           {/* CTA */}
           <div className={`mt-6 ${mont.className}`}>
-            <Button href={ctaHref} variant="primary" className="text-xl shadow-sm">
+            <Button href={ctaHref} variant="primary" className="text-base md:text-xl shadow-sm">
               {ctaLabel}
             </Button>
           </div>
