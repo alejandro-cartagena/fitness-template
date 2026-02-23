@@ -77,7 +77,7 @@ export default function WhyMeV2({
                 className="group flex items-start gap-4 rounded-r-lg py-2 pr-2"
               >
                 <span
-                  className="mt-1.5 h-full min-h-[2px] w-1 shrink-0 self-stretch rounded-full transition-all group-hover:w-1.5"
+                  className="mt-[0.5em] h-2.5 w-2.5 shrink-0 rounded-full transition-transform group-hover:scale-110"
                   style={{ backgroundColor: "var(--accent-primary)" }}
                   aria-hidden
                 />
