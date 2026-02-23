@@ -2,6 +2,7 @@
 
 import { siteConfig } from "@/config/site";
 import Button from "@/components/ui/Button";
+import VideoPlaceholder from "@/components/ui/VideoPlaceholder";
 import { Montserrat } from "next/font/google";
 
 const mont = Montserrat({
@@ -47,44 +48,8 @@ export default function WhyMe({
           {title}
         </h2>
 
-        {/* Video placeholder */}
         <div className="mt-10 flex justify-center">
-          <div
-            className="relative w-full overflow-hidden rounded-xl border border-(--border) bg-zinc-200 shadow-md ring-1 ring-black/5"
-            style={{ aspectRatio: "16/9" }}
-          >
-            {videoPlaceholderSrc ? (
-              <video
-                className="h-full w-full object-cover"
-                src={videoPlaceholderSrc}
-                controls
-                poster=""
-                aria-label="Intro video"
-              />
-            ) : (
-              <div
-                className="flex h-full w-full flex-col items-center justify-center gap-3 text-(--text-primary)"
-                style={{ backgroundColor: "var(--bg-primary)" }}
-              >
-                <div
-                  className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-(--accent-primary) text-(--accent-primary)"
-                  aria-hidden
-                >
-                  <svg
-                    className="ml-1 h-6 w-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden
-                  >
-                    <path d="M8 5v14l11-7L8 5z" />
-                  </svg>
-                </div>
-                <span className="text-sm font-medium text-zinc-500">
-                  Video placeholder
-                </span>
-              </div>
-            )}
-          </div>
+          <VideoPlaceholder src={videoPlaceholderSrc} />
         </div>
 
         {/* Subtitle */}

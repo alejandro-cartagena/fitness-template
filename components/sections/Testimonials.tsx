@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useCallback } from "react";
 import { Montserrat } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import Button from "@/components/ui/Button";
+import Carousel, { CarouselSlide } from "@/components/ui/Carousel";
 
 const mont = Montserrat({
     subsets: ["latin"],
@@ -136,17 +136,6 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 }
 
 export default function Testimonials() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scroll = useCallback((direction: "prev" | "next") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const cardWidth = el.querySelector("[data-testimonial-card]")?.getBoundingClientRect().width ?? el.clientWidth;
-    const gap = 24;
-    const scrollAmount = cardWidth + gap;
-    el.scrollBy({ left: direction === "next" ? scrollAmount : -scrollAmount, behavior: "smooth" });
-  }, []);
-
   return (
     <section
       className="w-full py-16 sm:py-20 lg:py-24"
@@ -176,60 +165,22 @@ export default function Testimonials() {
           </p>
         </header>
 
-        {/* Carousel */}
-        <div className="relative mt-10 lg:mt-12">
-          <div
-            ref={scrollRef}
-            className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 scroll-smooth scrollbar-hide md:gap-6"
-            style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-            }}
-            aria-label="Testimonials carousel"
+        <div className="mt-10 lg:mt-12">
+          <Carousel
+            ariaLabel="Testimonials carousel"
+            prevAriaLabel="Previous testimonials"
+            nextAriaLabel="Next testimonials"
+            buttonStyle={{ backgroundColor: siteConfig.branding.colors.accent.primary }}
           >
             {testimonials.map((t) => (
-              <div
+              <CarouselSlide
                 key={t.id}
-                data-testimonial-card
                 className="min-w-full w-full shrink-0 snap-center lg:min-w-0 lg:w-[calc(50%-12px)]"
               >
                 <TestimonialCard testimonial={t} />
-              </div>
+              </CarouselSlide>
             ))}
-          </div>
-
-          {/* Hide scrollbar in WebKit */}
-          <style>{`
-            .scrollbar-hide::-webkit-scrollbar {
-              display: none;
-            }
-          `}</style>
-
-          {/* Prev / Next */}
-          <div className="mt-6 flex justify-center gap-3">
-            <button
-              type="button"
-              onClick={() => scroll("prev")}
-              aria-label="Previous testimonials"
-              className="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-md transition hover:opacity-90 active:scale-95 disabled:opacity-40"
-              style={{ backgroundColor: siteConfig.branding.colors.accent.primary }}
-            >
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              onClick={() => scroll("next")}
-              aria-label="Next testimonials"
-              className="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-md transition hover:opacity-90 active:scale-95 disabled:opacity-40"
-              style={{ backgroundColor: siteConfig.branding.colors.accent.primary }}
-            >
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
+          </Carousel>
         </div>
       </div>
       {/* CTA */}

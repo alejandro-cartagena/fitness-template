@@ -21,7 +21,7 @@ export default function Footer() {
             <div className="mt-4">
               <Button
                 href="/#contact"
-                variant="inverse"
+                variant="primary"
                 className="shadow-sm"
                 aria-label="Join my team"
               >
@@ -33,7 +33,7 @@ export default function Footer() {
           {/* Divider */}
           <div className="sm:hidden h-px w-full bg-white/10" />
 
-          <div className="flex md:flex-row flex-col md:gap-8 gap-4 text-center md:text-left mx-auto md:mx-0">
+          <div className="flex flex-col md:flex-row gap-6 text-center md:text-left mx-auto md:mx-0">
             {siteConfig.navigation.map((item) => (
               <Link key={item.href} href={item.href} className="text-sm uppercase tracking-wider text-zinc-400 transition-colors hover:text-zinc-100">
                 {item.label}
