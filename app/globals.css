@@ -127,6 +127,19 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Hero background: subtle zoom effect */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+.animate-hero-zoom {
+  animation: hero-zoom 22s ease-in-out infinite alternate;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

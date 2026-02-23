@@ -8,10 +8,14 @@ import MyTransformation from "@/components/sections/MyTransformation";
 import Testimonials from "@/components/sections/Testimonials";
 import WhyMe from "@/components/sections/WhyMe";
 
+// Different Versions of the Hero Section
+import HeroV2 from "@/components/sections/Hero/HeroV2";
+
 export default function Home() {
   return (
     <div>
-      <Hero />
+      {/* <Hero /> */}
+      <HeroV2 />
       <WhyMe />
       <Features />
       <AppFeatures />
