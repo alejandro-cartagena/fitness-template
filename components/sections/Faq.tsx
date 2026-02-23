@@ -64,7 +64,7 @@ export default function Faq({ eyebrow = "Support" }: FaqProps) {
   return (
     <section
       className="w-full py-16 sm:py-20 lg:py-24"
-      style={{ backgroundColor: siteConfig.branding.colors.background.primary }}
+      style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
