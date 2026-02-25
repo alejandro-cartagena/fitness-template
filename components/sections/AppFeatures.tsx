@@ -126,24 +126,8 @@ export default function AppFeatures({
                       }
                     />
 
-                    {/* Details panel under the phone, matching same width */}
-                    <div className="relative mt-3 gap-2 flex h-48 flex-1 flex-col overflow-hidden rounded-b-xl bg-white text-center">
-                      {/* Fixed-height title block so underline aligns across cards */}
-                      <div className="mx-auto flex gap-2 h-10 w-full flex-col items-center justify-end">
-                        <h3 className="text-base text-xl font-semibold leading-tight text-zinc-900">
-                          {item.title}
-                        </h3>
-                        <div className="h-1 w-16 rounded-full bg-[var(--accent-primary)]" />
-                      </div>
-                      <p className="mt-2 text-lg leading-7 text-zinc-600">
-                        {item.description}
-                      </p>
-                      {item.content ? (
-                        <div className="mt-4 text-sm text-zinc-700">
-                          {item.content}
-                        </div>
-                      ) : null}
-                    </div>
+                    
+
                   </div>
                 </article>
               </div>

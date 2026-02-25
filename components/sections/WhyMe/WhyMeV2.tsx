@@ -42,7 +42,7 @@ export default function WhyMeV2({
         backgroundColor: siteConfig.branding.colors.background.secondary,
       }}
     >
-      <Container size="default" className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
+      <Container size="default" className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
         {/* Left: video — prominent on desktop */}
         <div className="w-full shrink-0 lg:max-w-[480px] xl:max-w-[520px]">
           <VideoPlaceholder
