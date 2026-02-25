@@ -88,8 +88,9 @@ export default function AppFeatures({
           {heading}
         </h2>
 
-        {/* Aligned label + card columns */}
-        <div className="mt-8 grid grid-cols-1 gap-10 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Aligned label + card columns: constrained and centered on tablet */}
+        <div className="mx-auto mt-8 w-full max-w-2xl sm:mt-10 lg:max-w-none">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => {
             const isActive = activeId === item.id;
             return (
@@ -133,6 +134,7 @@ export default function AppFeatures({
               </div>
             );
           })}
+          </div>
         </div>
       </Container>
     </section>

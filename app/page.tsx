@@ -7,6 +7,7 @@ import Faq from "@/components/sections/Faq";
 import MyTransformation from "@/components/sections/MyTransformation";
 import Testimonials from "@/components/sections/Testimonials";
 import WhyMe from "@/components/sections/WhyMe";
+import Marquee from "@/components/sections/Marquee/Marquee";
 
 // Different Versions of the Hero Section
 import HeroV2 from "@/components/sections/Hero/HeroV2";
@@ -29,6 +30,7 @@ export default function Home() {
       <AppFeatures />
       <About />
       <MyTransformation />
+      <Marquee />
       <Testimonials />
       <Programs />
       <Faq />

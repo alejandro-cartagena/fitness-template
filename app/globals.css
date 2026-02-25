@@ -140,6 +140,34 @@ body {
   animation: hero-zoom 22s ease-in-out infinite alternate;
 }
 
+/* Marquee: right-to-left (content moves left) */
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Marquee: left-to-right (content moves right) */
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-rtl {
+  animation: marquee-rtl 40s linear infinite;
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 40s linear infinite;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
