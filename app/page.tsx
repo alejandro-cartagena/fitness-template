@@ -18,6 +18,9 @@ import WhyMeV2 from "@/components/sections/WhyMe/WhyMeV2";
 // Different Versions of the Features Section
 import FeaturesV2 from "@/components/sections/Features/FeaturesV2";
 
+// Different Versions of the App Features Section
+import AppFeaturesV2 from "@/components/sections/AppFeatures/AppFeaturesV2";
+
 export default function Home() {
   return (
     <div>
@@ -27,7 +30,8 @@ export default function Home() {
       <WhyMeV2 />
       {/* <Features /> */}
       <FeaturesV2 />
-      <AppFeatures />
+      {/* <AppFeatures /> */}
+      <AppFeaturesV2 />
       <About />
       <MyTransformation />
       <Marquee />
