@@ -24,14 +24,14 @@ import AppFeaturesV2 from "@/components/sections/AppFeatures/AppFeaturesV2";
 export default function Home() {
   return (
     <div>
-      {/* <Hero /> */}
-      <HeroV2 />
-      {/* <WhyMe /> */}
-      <WhyMeV2 />
-      {/* <Features /> */}
-      <FeaturesV2 />
-      {/* <AppFeatures /> */}
-      <AppFeaturesV2 />
+      <Hero />
+      {/* <HeroV2 /> */}
+      <WhyMe />
+      {/* <WhyMeV2 /> */}
+      <Features />
+      {/* <FeaturesV2 /> */}
+      <AppFeatures />
+      {/* <AppFeaturesV2 /> */}
       <About />
       <MyTransformation />
       <Marquee />

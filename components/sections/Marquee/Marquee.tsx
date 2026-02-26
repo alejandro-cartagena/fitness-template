@@ -208,10 +208,10 @@ function MarqueeTrack({
   return (
     <div className="relative w-full overflow-hidden py-4">
       <div
-        className={`flex w-max gap-6 pr-6 ${direction === "rtl" ? "animate-marquee-rtl" : "animate-marquee-ltr"}`}
+        className={`flex w-max min-w-max gap-6 pr-6 will-change-transform ${direction === "rtl" ? "animate-marquee-rtl" : "animate-marquee-ltr"}`}
       >
-        {[...wins, ...wins].map((win) => (
-          <SuccessStoryCard key={`${win.id}-${win.date}-${win.name}`} win={win} />
+        {[...wins, ...wins].map((win, index) => (
+          <SuccessStoryCard key={`${win.id}-${win.date}-${win.name}-${index}`} win={win} />
         ))}
       </div>
     </div>
