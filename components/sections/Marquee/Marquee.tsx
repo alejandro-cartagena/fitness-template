@@ -221,10 +221,7 @@ function MarqueeTrack({
 export default function Marquee() {
   const { branding } = siteConfig;
   return (
-    <section
-      className="relative w-full overflow-hidden bg-white py-16 md:py-20"
-      style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
-    >
+    <section className="relative w-full overflow-hidden bg-white py-16 md:py-20">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <span
           className="inline-block rounded-full px-4 py-1.5 text-sm font-bold uppercase tracking-wide"

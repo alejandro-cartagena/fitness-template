@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable}`}>
       <body 
-        className={`antialiased min-h-screen flex flex-col`}
+        className="antialiased min-h-screen flex flex-col overflow-x-hidden"
         style={
           {
             "--bg-primary": siteConfig.branding.colors.background.primary,
