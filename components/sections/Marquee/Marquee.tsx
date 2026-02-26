@@ -221,14 +221,13 @@ function MarqueeTrack({
 export default function Marquee() {
   const { branding } = siteConfig;
   return (
-    <section className="relative w-full overflow-hidden bg-white py-16 md:py-20">
+    <section className="relative w-full overflow-hidden py-16 md:py-20" style={{
+      backgroundColor: branding.colors.background.secondary,
+    }}>
       <div className="mx-auto max-w-4xl px-6 text-center">
         <span
-          className="inline-block rounded-full px-4 py-1.5 text-sm font-bold uppercase tracking-wide"
-          style={{
-            backgroundColor: branding.colors.accent.primary,
-            color: branding.colors.text.inverse,
-          }}
+          className="inline-block text-xs font-semibold uppercase tracking-[0.2em]"
+          style={{ color: branding.colors.accent.primary }}
         >
           Student Wins
         </span>

@@ -65,17 +65,17 @@ export default function Faq({ eyebrow = "Support" }: FaqProps) {
   return (
     <section
       className="w-full py-16 sm:py-20 lg:py-24"
-      style={{ backgroundColor: siteConfig.branding.colors.background.secondary }}
+      style={{ backgroundColor: siteConfig.branding.colors.background.primary }}
       aria-labelledby="faq-heading"
     >
       <Container size="narrow">
         <header className="text-center">
-          <p
-            className="text-xs font-semibold uppercase tracking-[0.2em]"
+          <span
+            className="inline-block text-xs font-semibold uppercase tracking-[0.2em]"
             style={{ color: siteConfig.branding.colors.accent.primary }}
           >
             {eyebrow}
-          </p>
+          </span>
           <h2
             id="faq-heading"
             className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl"

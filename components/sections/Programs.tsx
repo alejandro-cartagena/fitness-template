@@ -265,17 +265,17 @@ export default function Programs({
     <section
       id="programs"
       className="w-full py-16 sm:py-20 lg:py-24"
-      style={{ backgroundColor: colors.background.primary }}
+      style={{ backgroundColor: colors.background.secondary }}
       aria-labelledby="programs-heading"
     >
       <Container>
         <header className="text-center">
-          <p
-            className="text-xs font-semibold uppercase tracking-[0.2em]"
+          <span
+            className="inline-block text-xs font-semibold uppercase tracking-[0.2em]"
             style={{ color: colors.accent.primary }}
           >
             {eyebrow}
-          </p>
+          </span>
           <h2
             id="programs-heading"
             className={`${mont.className} mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl`}

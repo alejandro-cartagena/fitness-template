@@ -149,12 +149,12 @@ export default function FeaturesV2({ eyebrow = "Features" }: FeaturesV2Props) {
       <Container>
         {/* Header */}
         <header className="text-center">
-          <p
-            className="text-xs font-semibold uppercase tracking-[0.2em]"
+          <span
+            className="inline-block text-xs font-semibold uppercase tracking-[0.2em]"
             style={{ color: siteConfig.branding.colors.accent.primary }}
           >
             {eyebrow}
-          </p>
+          </span>
           <h2
             id="features-v2-heading"
             className="mt-2 text-3xl font-extrabold italic uppercase tracking-tight sm:text-4xl lg:text-5xl"

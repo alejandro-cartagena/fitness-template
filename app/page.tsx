@@ -28,8 +28,8 @@ export default function Home() {
       {/* <HeroV2 /> */}
       <WhyMe />
       {/* <WhyMeV2 /> */}
-      <Features />
-      {/* <FeaturesV2 /> */}
+      {/* <Features /> */}
+      <FeaturesV2 />
       <AppFeatures />
       {/* <AppFeaturesV2 /> */}
       <About />

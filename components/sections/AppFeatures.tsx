@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import Container from "@/components/ui/Container";
 import Iphone from "@/components/ui/iphone";
+import { siteConfig } from "@/config/site";
 import { Montserrat } from "next/font/google";
 
 const mont = Montserrat({
@@ -80,9 +81,14 @@ export default function AppFeatures({
     <section className="relative isolate w-full py-14 sm:py-20 lg:py-24">
       <Container>
         {/* Eyebrow */}
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent-primary)]">
-          {eyebrow}
-        </p>
+        <div className="text-center">
+          <span
+            className="inline-block text-xs font-semibold uppercase tracking-[0.2em]"
+            style={{ color: siteConfig.branding.colors.accent.primary }}
+          >
+            {eyebrow}
+          </span>
+        </div>
         {/* Heading */}
         <h2 className="mt-2 text-center text-2xl font-extrabold tracking-tight text-zinc-900 sm:text-3xl lg:text-4xl">
           {heading}

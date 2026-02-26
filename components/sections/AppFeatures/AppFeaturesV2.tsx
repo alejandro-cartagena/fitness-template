@@ -77,12 +77,17 @@ export default function AppFeaturesV2() {
     >
       <Container>
         {/* Eyebrow */}
-        <p
-          className="text-center text-xs font-semibold uppercase tracking-[0.2em]"
-          style={{ color: branding.colors.accent.primary }}
-        >
-          Charm Fitness
-        </p>
+        <div className="text-center">
+          <span
+            className="inline-block rounded-full px-4 py-1.5 text-sm font-bold uppercase tracking-wide"
+            style={{
+              backgroundColor: branding.colors.accent.primary,
+              color: branding.colors.text.inverse,
+            }}
+          >
+            Charm Fitness
+          </span>
+        </div>
 
         {/* Heading */}
         <h2
